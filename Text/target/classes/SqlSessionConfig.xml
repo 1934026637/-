@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--    加入这个，意味着要用el表达式-->
+    <properties resource="jdbcConfig.properties"/>
+
+<!--    </properties>-->
+
+    <!--    数据库的配置-->
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!--可以用这些代替路径-->
+        <mapper resource="com/offcn/dao/UserMapper.xml"></mapper>
+        <!--        <mapper class="guitar.Dao.UserMapper"></mapper>-->
+        <!--        <package name="guitar.Dao"/>-->
+
+        <!--        原生路径 -->
+        <!--        <mapper resource="guitar/Dao/UserMapper.xml"></mapper>-->
+    </mappers>
+</configuration>
